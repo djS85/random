@@ -59,16 +59,19 @@ function log_in($_username, $_pwd) {
                 $_SESSION['username'] = $username;
                 // direct them to the welcome page.
                 header('location: welcome.php');
+            } else {
+                echo "Wrong username and/or password!";
             }
+        } else {
+            echo "Wrong username and/or password!";
         }
-        // close statement and connection.
-        $st->close();
-        $con->close();
     } else {
         // error message.
-        echo "Wrong username and/or password!";
+        echo "You must enter a username and password!";
     }
-
+    // close statement and connection.
+//            $st->close();
+    $con->close();
 }
 
 function register($_username, $_email, $_pwd) {
